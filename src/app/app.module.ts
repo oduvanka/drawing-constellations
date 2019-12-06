@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DrawerLibraryModule } from 'angular5-canvas-drawer';
 
 import { AppComponent } from './app.component';
 import { SkyComponent } from './sky/sky.component';
@@ -10,7 +11,8 @@ import { SkyComponent } from './sky/sky.component';
     SkyComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DrawerLibraryModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
