@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BoundingBox, createBoundingBox } from 'angular5-canvas-drawer/lib/build/models/bounding-box';
+import { BoundingBox } from 'angular5-canvas-drawer/lib/build/models/bounding-box';
+import { DataStoreService, EditorToolType } from 'angular5-canvas-drawer/lib/build/drawer-library.module';
+
 
 @Component({
   selector: 'app-sky',
@@ -8,16 +10,14 @@ import { BoundingBox, createBoundingBox } from 'angular5-canvas-drawer/lib/build
 })
 export class SkyComponent implements OnInit {
 
-  public viewBoxItem: BoundingBox;
+  public itemViewBox: BoundingBox = null;
+  public handleMouseEvents: boolean;
 
-  constructor() { }
+  constructor(private _dataStoreService: DataStoreService) { }
 
   ngOnInit() {
-    let viewBoxItem = createBoundingBox();
-    viewBoxItem.y = 100;
-    viewBoxItem.x = 100;
-    viewBoxItem.height = 400;
-    viewBoxItem.width = 300;
+    this.handleMouseEvents = true;
+    this._dataStoreService.selectedTool = EditorToolType.RECTANGLE_TOOL;
   }
 
 }
